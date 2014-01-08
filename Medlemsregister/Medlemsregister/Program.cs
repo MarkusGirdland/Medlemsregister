@@ -104,7 +104,24 @@ namespace Medlemsregister
 
                     case 5:
                         // Ta bort medlem
-                        ViewMessage("Femman", false);
+                        ViewMessage("Vilken medlem vill du radera?", false);
+                        int whoMember = GetMemberNumber();        // Hittar rätt nummer
+
+                        if (whoMember < 0)
+                        {
+                        }
+
+                        else if (whoMember > (arrayPos - 1))      // Kollar numret, så den finns att hitta
+                        {
+                            ViewMessage("Kunde inte hitta den medlemmen, försök igen.", true);
+                        }
+
+                        else if (whoMember <= arrayPos)
+                        {
+                            memberArray = DeleteMember(memberArray, whoMember);       // Hittar och raderar
+                            arrayPos--;
+                            
+                        }
                         break;
                 }
             } while (input != 0);
@@ -437,6 +454,17 @@ namespace Medlemsregister
                 }
 
             } while (input != 0);
+        }
+
+        static Member[] DeleteMember(Member[] array, int pos)
+        {
+
+            var newList = array.ToList();
+            newList.RemoveAt(pos);
+            Member[] newArray = new Member[100];
+            newArray = newList.ToArray();
+
+            return newArray;
         }
         
     }
