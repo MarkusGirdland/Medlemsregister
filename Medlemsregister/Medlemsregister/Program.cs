@@ -20,6 +20,7 @@ namespace Medlemsregister
 
                 try
                 {
+                    input = 10;
                     input = int.Parse(Console.ReadLine());
 
                     if (input >= 0 && input <= 5)
@@ -50,7 +51,7 @@ namespace Medlemsregister
 
                     case 2:
                         // Lista medlem
-                        ViewMessage("Tvåan", false);
+                        ViewMembers(memberArray, arrayPos);
                         break;
 
                     case 3:
@@ -116,7 +117,7 @@ namespace Medlemsregister
 
             do
             {
-                Console.WriteLine("Vad är förnamnet?");
+                Console.WriteLine("Vad är förnamnet?");         // Förnamn
                 try
                 {
                     nameInput = Console.ReadLine();
@@ -139,7 +140,7 @@ namespace Medlemsregister
             {
                 continueBool = false;
 
-                Console.WriteLine("Vad är efternamnet?");
+                Console.WriteLine("Vad är efternamnet?");           // Efternamn
                 try
                 {
                     nameInput = Console.ReadLine();
@@ -158,8 +159,56 @@ namespace Medlemsregister
 
             } while (!continueBool);
 
+            do
+            {
+                continueBool = false;
+                int numberInput;
+
+                Console.WriteLine("Vad är telefonnumret?");           // Telefonnummer
+                try
+                {
+                    numberInput = int.Parse(Console.ReadLine());
+                }
+
+                catch
+                {
+                    ViewMessage("Fel format, försök igen.", true);
+                    continueBool = false;
+                    break;
+                }
+
+
+                myMember.PhoneNumber = numberInput;
+                continueBool = true;
+
+            } while (!continueBool);
+
+            myMember.CreateMemberNumber();
 
             return myMember;
+        }
+
+        static void ViewMembers(Member[] array, int pos)
+        {
+            Console.Clear();
+            string printString;
+
+            if (pos == 0)
+            {
+                ViewMessage("Inga medlemmar är inlagda ännu. Försök igen senare.", true);
+            }
+
+            else
+            {
+                for (int i = 0; i < pos; i++)
+                {
+                    printString = array[i].PrintToString();
+                    Console.WriteLine(printString);   
+                }
+
+                Console.WriteLine("Tryck på en tangent för att fortsätta...");
+                Console.ReadKey();
+            }
         }
             
         

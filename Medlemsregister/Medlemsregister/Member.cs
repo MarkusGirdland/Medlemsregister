@@ -18,12 +18,6 @@ namespace Medlemsregister
             get { return _firstName; }
             set
             {
-                foreach (char c in value)
-                {
-                    if (!char.IsLetter(c))
-                        throw new ArgumentException();
-                }
-
                 _firstName = value;
             }
         }
@@ -33,12 +27,6 @@ namespace Medlemsregister
             get { return _lastName; }
             set
             {
-                foreach (char c in value)
-                {
-                    if (!char.IsLetter(c))
-                        throw new ArgumentException();
-                }
-
                 _lastName = value;
             }
         }
@@ -60,7 +48,7 @@ namespace Medlemsregister
         public void CreateMemberNumber()
         {
             Random random = new Random();
-            int randomNumber = random.Next(00000, 99999);
+            int randomNumber = random.Next(10000, 99999);
 
             this._memberNumber = randomNumber;
         }
@@ -69,7 +57,7 @@ namespace Medlemsregister
         {
             string returnString;
 
-            returnString = String.Format("\n\nNamn  :\t{0}\nEfternamn   :\t{1}\nTelefonnummer   :\t{2}\nMedlemsnummer   :\t{3}\n", _firstName, _lastName, _phoneNumber, _memberNumber);
+            returnString = String.Format("\nNamn:\t\t{0}\nEfternamn:\t{1}\nTelefonnummer:\t{2}\nMedlemsnummer:\t{3}", _firstName, _lastName, _phoneNumber, _memberNumber);
 
             return returnString;
         }
