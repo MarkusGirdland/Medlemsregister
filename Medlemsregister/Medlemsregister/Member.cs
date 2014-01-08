@@ -65,13 +65,21 @@ namespace Medlemsregister
             this._memberNumber = randomNumber;
         }
 
-        public string ToString()
+        public string PrintToString()
         {
             string returnString;
 
             returnString = String.Format("\n\nNamn  :\t{0}\nEfternamn   :\t{1}\nTelefonnummer   :\t{2}\nMedlemsnummer   :\t{3}\n", _firstName, _lastName, _phoneNumber, _memberNumber);
 
             return returnString;
+        }
+
+        public Member()
+        {
+            this._firstName = "John";
+            this._lastName = "Doe";
+            this._memberNumber = 00000;
+            this._phoneNumber = 112;
         }
 
     }

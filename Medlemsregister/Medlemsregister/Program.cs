@@ -10,8 +10,10 @@ namespace Medlemsregister
     {
         static void Main(string[] args)
         {
+            int arrayPos = 0;
             int input = 0;
-
+            Member[] memberArray = new Member[100];
+ 
             do
             {
                 ViewMenu();
@@ -41,8 +43,9 @@ namespace Medlemsregister
                         continue;
 
                     case 1:
-                        // Skapa medlem
-                        ViewMessage("Ettan", false);
+                        // Skapa medlem 
+                        memberArray[arrayPos] = AddMember();
+                        arrayPos++;
                         break;
 
                     case 2:
@@ -105,5 +108,60 @@ namespace Medlemsregister
             Console.ResetColor();
         }
 
+        static Member AddMember()
+        {
+            string nameInput;
+            bool continueBool = false;
+            Member myMember = new Member();
+
+            do
+            {
+                Console.WriteLine("Vad är förnamnet?");
+                try
+                {
+                    nameInput = Console.ReadLine();
+                }
+
+                catch
+                {
+                    ViewMessage("Fel format, försök igen.", true);
+                    continueBool = false;
+                    break;
+                }
+
+
+                myMember.FirstName = nameInput;
+                continueBool = true;
+
+            } while (!continueBool);
+
+            do
+            {
+                continueBool = false;
+
+                Console.WriteLine("Vad är efternamnet?");
+                try
+                {
+                    nameInput = Console.ReadLine();
+                }
+
+                catch
+                {
+                    ViewMessage("Fel format, försök igen.", true);
+                    continueBool = false;
+                    break;
+                }
+
+
+                myMember.LastName = nameInput;
+                continueBool = true;
+
+            } while (!continueBool);
+
+
+            return myMember;
+        }
+            
+        
     }
 }
