@@ -45,6 +45,20 @@ namespace Medlemsregister
             }
         }
 
+        public int MemberNumber
+        {
+            get { return _memberNumber; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException();
+                }
+
+                _memberNumber = value;
+            }
+        }
+
         public void CreateMemberNumber()
         {
             Random random = new Random();

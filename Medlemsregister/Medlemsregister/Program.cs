@@ -23,7 +23,7 @@ namespace Medlemsregister
                     input = 10;
                     input = int.Parse(Console.ReadLine());
 
-                    if (input >= 0 && input <= 5)
+                    if (input >= 0 && input <= 5)       // Rätt val i menyn
                     {
                     }
 
@@ -58,52 +58,47 @@ namespace Medlemsregister
                         //Info om medlem
                         if (arrayPos == 0)
                         {
-                            ViewMessage("Inga medlemmar finns ännu, försök igen senare.", true);
+                            ViewMessage("Inga medlemmar finns ännu, försök igen senare.", true);        // Om inga medlemmar finns
                             break;
                         }
 
                         ViewMessage("Vilken medlem vill du ha information om?", false);
-                        int whatMember = GetMemberNumber();
+                        int whatMember = GetMemberNumber();     // Skaffar rätt position
 
                         if (whatMember < 0)
                         {
                         }
 
-                        else if (whatMember > (arrayPos - 1))
+                        else if (whatMember > (arrayPos - 1))                   // Kollar data, så den finns att hitta
                         {
                             ViewMessage("Kunde inte hitta den medlemmen, försök igen.", true);
                         }
 
                         else if (whatMember <= arrayPos)
                         {
-                            GetMemberInfo(memberArray, whatMember);
+                            GetMemberInfo(memberArray, whatMember);         // Hittar och visar data
                         }
-
-                        break;
-
-                    case 4:
-                        // Redigera medlem
-                       if (arrayPos == 0)
-                        {
                             ViewMessage("Inga medlemmar finns ännu, försök igen senare.", true);
                             break;
-                        }
+                        
+
+                    case 4:
 
                         ViewMessage("Vilken medlem vill du redigera?", false);
-                        int whichMember = GetMemberNumber();
+                        int whichMember = GetMemberNumber();        // Hittar rätt nummer
 
                         if (whichMember < 0)
                         {
                         }
 
-                        else if (whichMember > (arrayPos - 1))
+                        else if (whichMember > (arrayPos - 1))      // Kollar numret, så den finns att hitta
                         {
                             ViewMessage("Kunde inte hitta den medlemmen, försök igen.", true);
                         }
 
                         else if (whichMember <= arrayPos)
                         {
-                            EditMemberInfo(memberArray, whichMember);
+                            EditMemberInfo(memberArray, whichMember);       // Hittar och tillåter ändring av data
                         }
                         break;
 
@@ -116,7 +111,7 @@ namespace Medlemsregister
         }
 
 
-        static void ViewMenu()
+        static void ViewMenu()      // Menyn
         {
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("======================================");
@@ -136,7 +131,7 @@ namespace Medlemsregister
             Console.WriteLine("\nAnge menyval [0-5]:");
         }
 
-        static void ViewMessage(string message, bool error)
+        static void ViewMessage(string message, bool error)     // Meddelandefunktion
         {
             if(error)
             {
@@ -152,7 +147,7 @@ namespace Medlemsregister
             Console.ResetColor();
         }
 
-        static Member AddMember()
+        static Member AddMember()       // Lägg till medlemsfunktion
         {
             string nameInput = "John";
             bool continueBool = false;
@@ -230,7 +225,7 @@ namespace Medlemsregister
             return myMember;
         }
 
-        static void ViewMembers(Member[] array, int pos)
+        static void ViewMembers(Member[] array, int pos)        // Visar medlemmar
         {
             Console.Clear();
             string printString;
@@ -253,7 +248,7 @@ namespace Medlemsregister
             }
         }
 
-        static int GetMemberNumber()
+        static int GetMemberNumber()        
         {
             int numberInput = 0;
   
@@ -309,6 +304,139 @@ namespace Medlemsregister
 
         static void EditMemberInfo(Member[] array, int pos)
         {
+            int input = 10;
+            int number;
+            string nameInput;
+            string name;
+
+            
+
+
+            
+
+          
+
+            do
+            {
+                string printIt = array[pos].PrintDetailedToString();
+                Console.Clear();
+                Console.WriteLine(printIt, "\n");
+
+                Console.WriteLine("Vilken egenskap vill du ändra? \n");
+                Console.WriteLine("0. Avsluta\n1. Förnamn\n2. Efternamn\n3. Telefonnummer\n4. Medlemsnummer");
+
+                try
+                {
+                    input = int.Parse(Console.ReadLine());
+                }
+
+                catch
+                {
+                    ViewMessage("Inte ett tal mellan 0-4, försök igen.", true);
+                }
+
+                if (input < 0 && input > 4)
+                {
+                    ViewMessage("Inte ett tal mellan 0-4, försök igen.", true);
+                }
+
+                else if (input == 1)
+                {
+                    name = array[pos].FirstName;
+
+                    Console.WriteLine("Vad vill du byta {0} till?", name);
+
+                    nameInput = Console.ReadLine();
+
+                    array[pos].FirstName = nameInput;
+                }
+
+                else if (input == 2)
+                {
+                    name = array[pos].LastName;
+
+                    Console.WriteLine("Vad vill du byta {0} till?", name);
+
+                    nameInput = Console.ReadLine();
+
+                    array[pos].LastName = nameInput;
+                }
+
+                else if (input == 3)
+                {
+                    bool continueBool = false;
+                    number = array[pos].PhoneNumber;
+
+                    do
+                    {
+                        continueBool = false;
+                        int numberInput = 0;
+
+                        Console.WriteLine("Vad vill du byta {0} till?", number);           // Telefonnummer
+
+                        try
+                        {
+                            numberInput = int.Parse(Console.ReadLine());
+                            continueBool = true;
+                        }
+
+                        catch
+                        {
+                            ViewMessage("Fel format, försök igen.", true);
+                            continueBool = false;
+                        }
+
+                        if (numberInput < 0)
+                        {
+                            ViewMessage("Måste vara större än 0, försök igen.", true);
+                            continueBool = false;
+                        }
+
+
+
+                        array[pos].PhoneNumber = numberInput;
+
+
+                    } while (!continueBool);
+                }
+
+                else if (input == 4)
+                {
+                    bool continueBool = false;
+                    number = array[pos].MemberNumber;
+
+                    do
+                    {
+                        continueBool = false;
+                        int numberInput = 0;
+
+                        Console.WriteLine("Vad vill du byta {0} till?", number);           // Medlemsnummer
+
+                        try
+                        {
+                            numberInput = int.Parse(Console.ReadLine());
+                            continueBool = true;
+                        }
+
+                        catch
+                        {
+                            ViewMessage("Fel format, försök igen.", true);
+                            continueBool = false;
+                        }
+
+                        if (numberInput < 0)
+                        {
+                            ViewMessage("Måste vara större än 0, försök igen.", true);
+                            continueBool = false;
+                        }
+
+                        array[pos].MemberNumber = numberInput;
+
+
+                    } while (!continueBool);
+                }
+
+            } while (input != 0);
         }
         
     }
