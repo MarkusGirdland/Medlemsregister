@@ -56,12 +56,55 @@ namespace Medlemsregister
 
                     case 3:
                         //Info om medlem
-                        ViewMessage("Trean", false);
+                        if (arrayPos == 0)
+                        {
+                            ViewMessage("Inga medlemmar finns ännu, försök igen senare.", true);
+                            break;
+                        }
+
+                        ViewMessage("Vilken medlem vill du ha information om?", false);
+                        int whatMember = GetMemberNumber();
+
+                        if (whatMember < 0)
+                        {
+                        }
+
+                        else if (whatMember > (arrayPos - 1))
+                        {
+                            ViewMessage("Kunde inte hitta den medlemmen, försök igen.", true);
+                        }
+
+                        else if (whatMember <= arrayPos)
+                        {
+                            GetMemberInfo(memberArray, whatMember);
+                        }
+
                         break;
 
                     case 4:
                         // Redigera medlem
-                        ViewMessage("Fyran", false);
+                       if (arrayPos == 0)
+                        {
+                            ViewMessage("Inga medlemmar finns ännu, försök igen senare.", true);
+                            break;
+                        }
+
+                        ViewMessage("Vilken medlem vill du redigera?", false);
+                        int whichMember = GetMemberNumber();
+
+                        if (whichMember < 0)
+                        {
+                        }
+
+                        else if (whichMember > (arrayPos - 1))
+                        {
+                            ViewMessage("Kunde inte hitta den medlemmen, försök igen.", true);
+                        }
+
+                        else if (whichMember <= arrayPos)
+                        {
+                            EditMemberInfo(memberArray, whichMember);
+                        }
                         break;
 
                     case 5:
@@ -111,7 +154,7 @@ namespace Medlemsregister
 
         static Member AddMember()
         {
-            string nameInput;
+            string nameInput = "John";
             bool continueBool = false;
             Member myMember = new Member();
 
@@ -127,7 +170,6 @@ namespace Medlemsregister
                 {
                     ViewMessage("Fel format, försök igen.", true);
                     continueBool = false;
-                    break;
                 }
 
 
@@ -150,7 +192,6 @@ namespace Medlemsregister
                 {
                     ViewMessage("Fel format, försök igen.", true);
                     continueBool = false;
-                    break;
                 }
 
 
@@ -162,24 +203,25 @@ namespace Medlemsregister
             do
             {
                 continueBool = false;
-                int numberInput;
+                int numberInput = 0;
 
                 Console.WriteLine("Vad är telefonnumret?");           // Telefonnummer
                 try
                 {
                     numberInput = int.Parse(Console.ReadLine());
+                    continueBool = true;
                 }
 
                 catch
                 {
                     ViewMessage("Fel format, försök igen.", true);
                     continueBool = false;
-                    break;
                 }
 
 
+
                 myMember.PhoneNumber = numberInput;
-                continueBool = true;
+                
 
             } while (!continueBool);
 
@@ -210,7 +252,64 @@ namespace Medlemsregister
                 Console.ReadKey();
             }
         }
+
+        static int GetMemberNumber()
+        {
+            int numberInput = 0;
+  
+
             
+            Console.WriteLine("Obs! Anges i den ordning som medlemmar visas i medlemslistan!");
+            Console.WriteLine("(0 för att avbryta)\n");
+
+            do
+            {
+                try
+                {
+                    numberInput = int.Parse(Console.ReadLine());
+                }
+
+                catch
+                {
+                    ViewMessage("Hittade inte medlem, försök igen.", true);
+                }
+
+                if(numberInput == 0)
+                {
+                    break;
+                }
+
+                else if(numberInput > 0 && numberInput <= 100)
+                {
+                    numberInput = numberInput - 1;
+                    return numberInput;
+                }
+
+                else
+                {
+                    ViewMessage("Hittade inte medlem, försök igen.", true);
+                }
+            }while(numberInput != 0);
+
+            return -1;
+        }
+
+        static void GetMemberInfo(Member[] array, int pos)
+        {
+            string printString;
+
+            printString = array[pos].PrintDetailedToString();
+
+            Console.WriteLine(printString);
+
+            Console.WriteLine("Tryck på en tangent för att fortsätta...");
+            Console.ReadKey();
+
+        }
+
+        static void EditMemberInfo(Member[] array, int pos)
+        {
+        }
         
     }
 }

@@ -57,6 +57,15 @@ namespace Medlemsregister
         {
             string returnString;
 
+            returnString = String.Format("\nNamn:\t\t{0}\nEfternamn:\t{1}", _firstName, _lastName);
+
+            return returnString;
+        }
+
+        public string PrintDetailedToString()
+        {
+            string returnString;
+
             returnString = String.Format("\nNamn:\t\t{0}\nEfternamn:\t{1}\nTelefonnummer:\t{2}\nMedlemsnummer:\t{3}", _firstName, _lastName, _phoneNumber, _memberNumber);
 
             return returnString;
