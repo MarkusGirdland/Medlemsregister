@@ -4,9 +4,9 @@
 
 ## Sprint 1
 
-[Start](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,4,5,6,7,&work=30)
+[Start](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,&work=30)
 
-[Dag 1](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,4,5,6,7,&work=30,0)
+[Dag 1](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,&work=30,0)
 
 [Dag 2](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,&work=30,0,1)
 
@@ -14,4 +14,6 @@
 
 ## Sprint 2
 
-[Start](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,4,5,6,7,&work=15)
+[Start](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,&work=15)
+
+[Dag 1](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,&work=15)
