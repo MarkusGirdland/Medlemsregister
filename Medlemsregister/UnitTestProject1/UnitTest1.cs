@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Medlemsregister
+namespace UnitTestProject1
 {
     [TestClass]
-    public class WhiteBox
+    public class UnitTest1
     {
         [TestMethod]
-        public void MemberTest()
+        public void TestMethod1()
         {
             
         }

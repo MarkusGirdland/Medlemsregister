@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medlemsregister", "Medlemsregister\Medlemsregister.csproj", "{C98FC46C-A65A-49D9-82EA-C7A3D8479BC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteBox Project", "WhiteBox Project\WhiteBox Project.csproj", "{7E797780-2483-493C-AC5A-266E64175196}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteBox", "WhiteBox\WhiteBox.csproj", "{FE1A4802-A9D1-4E90-96ED-DE4D89762D3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{C98FC46C-A65A-49D9-82EA-C7A3D8479BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C98FC46C-A65A-49D9-82EA-C7A3D8479BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C98FC46C-A65A-49D9-82EA-C7A3D8479BC9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E797780-2483-493C-AC5A-266E64175196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E797780-2483-493C-AC5A-266E64175196}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E797780-2483-493C-AC5A-266E64175196}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E797780-2483-493C-AC5A-266E64175196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE1A4802-A9D1-4E90-96ED-DE4D89762D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE1A4802-A9D1-4E90-96ED-DE4D89762D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE1A4802-A9D1-4E90-96ED-DE4D89762D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE1A4802-A9D1-4E90-96ED-DE4D89762D3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

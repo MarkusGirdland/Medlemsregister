@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Medlemsregister
 {
-    class Member
+    public class Member
     {
         private string _firstName;
         private string _lastName;
@@ -38,7 +38,7 @@ namespace Medlemsregister
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Inte ett tillåtet nummer");
                 }
 
                 _phoneNumber = value;
@@ -50,10 +50,12 @@ namespace Medlemsregister
             get { return _memberNumber; }
             set
             {
+
                 if (value < 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Inte ett tillåtet nummer");
                 }
+
 
                 _memberNumber = value;
             }
