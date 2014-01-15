@@ -125,7 +125,7 @@ namespace Medlemsregister
                         break;
                 }
             } while (input != 0);
-        }
+        }       // Mainfunktion
 
 
         static void ViewMenu()      // Menyn
@@ -304,7 +304,7 @@ namespace Medlemsregister
             }while(numberInput != 0);
 
             return -1;
-        }
+        }               // Få numret
 
         static void GetMemberInfo(Member[] array, int pos)
         {
@@ -317,7 +317,7 @@ namespace Medlemsregister
             Console.WriteLine("Tryck på en tangent för att fortsätta...");
             Console.ReadKey();
 
-        }
+        }       // Få info
 
         static void EditMemberInfo(Member[] array, int pos)
         {
@@ -454,9 +454,9 @@ namespace Medlemsregister
                 }
 
             } while (input != 0);
-        }
+        }       // Ändra medlem
 
-        static Member[] DeleteMember(Member[] array, int pos)
+        static Member[] DeleteMember(Member[] array, int pos)       // Ta bort medlem
         {
 
             var newList = array.ToList();
