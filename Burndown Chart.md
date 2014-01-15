@@ -20,6 +20,6 @@
 
 [Dag 2](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,&work=7,0,0)
 
-[Dag 3](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,&work=7,0,0,0)
+[Dag 3](http://apps.vanpuffelen.net/charts/burndown.jsp?days=1,2,3,&work=7,0,0,0) 
 
 
